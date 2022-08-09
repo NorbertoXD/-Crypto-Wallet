@@ -13,14 +13,21 @@ Agregar movimiento
 {% block contenido %}
 {{super()}}
 
+<!--
+  CRUD: Create, Read, Update, Delete
+  GET: read
+  POST: create, delete
+  PUT: update
+ -->
 <form action="/nuevo" method="post">
+
   <div class="campo-formulario">
-    <label for="fecha">Fecha </label>
+    <label for="fecha">Fecha</label>
     <input type="date" id="fecha" name="fecha">
   </div>
-  
+
   <div class="campo-formulario">
-    <label for="hora">Fecha </label>
+    <label for="hora">Hora</label>
     <input type="time" id="hora" name="hora">
   </div>
 
@@ -42,7 +49,8 @@ Agregar movimiento
   </div>
 
   <div class="acciones">
-    <button type="submil" class="blue-button">Agregar</button>
+    <!-- <input type="submit" value="Agregar"> -->
+    <button type="submit" class="blue-button">Agregar</button>
   </div>
 
 </form>
