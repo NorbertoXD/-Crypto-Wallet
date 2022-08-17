@@ -24,6 +24,7 @@ if codigo == 200:
             print(moneda["asset_id"], moneda["name"])
 
 
+
 else:
     print("La peticion a la API ha fallado")
     print(f"Codigo del error {codigo}")
