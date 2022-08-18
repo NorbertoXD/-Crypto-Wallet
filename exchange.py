@@ -1,22 +1,29 @@
 import requests
 
-from balance import app
-from balance.views import *
+# from balance import app
+# from balance.views import *
 
 apikey = "223C305D-FB30-4F3B-A4CC-FB1935013054"
 headers = {
     "X-CoinAPI-Key": apikey
 } 
 
-moneda_origen = input("¿Que moneda quieres cambiar?")
-moneda_destino = input("¿Que moneda deseas obtener?")
+seguir = "S"
 
-url = "http://rest.coinapi.io/v1/exchangerate/{moneda_origen}/{moneda_destino}"
-respuesta = requests.get(url, headers=headers)
-tipo_cambio = respuesta.json()
+while seguir.upper() == "S":
+    moneda_origen = input("¿Que moneda quieres cambiar?")
+    moneda_destino = input("¿Que moneda deseas obtener?")
 
-cambio = tipo_cambio["rate"]
+    url = f"http://rest.coinapi.io/v1/exchangerate/{moneda_origen}/{moneda_destino}"
+    respuesta = requests.get(url, headers=headers)
+    tipo_cambio = respuesta.json()
 
-print("Un {} vale como {:,.2f} {}".format(
-    moneda_origen, cambio, moneda_destino,
-))
+    cambio = tipo_cambio["rate"]
+
+    print("Un {} vale como {:,.2f} {}".format(
+        moneda_origen, cambio, moneda_destino,
+    ))
+
+    seguir = ""
+    while seguir.upper() not in ('S', 'N'):
+        seguir = input("¿Quieres hacer mas cambios? (S/N) ")
