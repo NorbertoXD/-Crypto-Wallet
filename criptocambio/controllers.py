@@ -8,4 +8,15 @@ class CriptoController:
         self.vista = CriptoView()
 
 
-    def coo
+    def consultar(self):
+        seguir = "S"
+        while seguir.upper() == "S":
+            desde, hasta = self.vista.pedir_monedas()
+            self.modelo.moneda_origen = desde
+            self.modelo.moneda_destino = hasta
+            self.modelo.consultar_cambio()
+            self.vista.mostrar_cambio(desde, hasta, self.modelo.cambio)
+
+            seguir = ""
+            while seguir.upper() not in ("S", "N"):
+                seguir = self.vista.quieres_seguir()
