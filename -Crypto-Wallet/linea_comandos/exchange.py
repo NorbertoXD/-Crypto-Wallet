@@ -1,7 +1,9 @@
+import locale
 import requests
 
-# from balance import app
-# from balance.views import *
+loc = locale.getlocale()
+print
+
 
 apikey = "223C305D-FB30-4F3B-A4CC-FB1935013054"
 headers = {
